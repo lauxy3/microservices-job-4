@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST Client</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+          </script>
+          <title>API Client</title>
+          <script type="text/javascript">
+            // this is for View Booking
+              function callrestAPI()
+              {
+              alert('clicked');
+              var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                  // Typical action to be performed when the document is ready:
+          console.log(xhttp.response);
+                  }
+              };  
+        xhttp.open("GET","https://localhost:7299/api/bookingitems/", true);
+              xhttp.send();
+              }
+          </script>
+
+
+
+
+          <script type="text/javascript">
+            // this is for View ALL Booking
+            function callALLrestAPI()
+            {
+            alert('clicked');
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+          console.log(xhttp.response);
+                }
+            };
+          xhttp.open("GET","https://localhost:7299/api/bookingitems/", true);
+            xhttp.send();
+            }
+          </script>
+
+
+
+
+          <script type="text/javascript">
+            // this is for Delete Booking
+            function deleteAPI()
+            {
+            alert('clicked');
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+          console.log(xhttp.response);
+                }
+            };
+          xhttp.open("DELETE","https://localhost:7299/api/bookingitems/", true);
+            xhttp.send();
+            }
+          </script>
+
+
+
+
+      <script>
+        // this is for Add Booking
+       		function callPOSTAPI() {
+		                alert('clicked');
+		                var xhttp = new XMLHttpRequest();
+		                xhttp.onreadystatechange = function () {
+		                    if (this.readyState == 4 && this.status == 200) {
+		                        //process response
+		                        console.log(xhttp.response);
+		                    }
+		                };
+		                // create a JSON object
+                    const data = { username: 'example' };
+
+                    fetch('https://jsonplaceholder.typicode.com/users', {
+                      method: 'POST', // or 'PUT'
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(data),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                      console.log('Success:', data);
+                    })
+                    .catch((error) => {
+                      console.error('Error:', error);
+                    });
+                  }
+                    // const json = {
+		                //     "id": "1",
+                    //     "Date":"14 Mar 2022",
+                    //     "Time":"10:00AM",
+                    //     "PickupPoint":"Ang Mo Kio",
+                    //     "Destination":"Sun Plaza",
+                    //     "Current_Location_Latitude":"1.3581",
+                    //     "Current_Location_Longitude":"103.8956"
+                    // }
+		                // xhttp.open('POST', 'https://localhost:7299/api/bookingitems/');
+		                // // set `Content-Type` header
+		                // xhttp.setRequestHeader('Content-Type', 'application/json');
+		                // // send request with JSON payload
+		                // xhttp.send(JSON.stringify(json));
+                  
+        </script>
+
+
+        <script>
+          // this is for Update Booking
+          function callPUTAPI() {
+		                alert('clicked');
+		                var xhttp = new XMLHttpRequest();
+		                xhttp.onreadystatechange = function () {
+		                    if (this.readyState == 4 && this.status == 200) {
+		                        //process response
+		                        console.log(xhttp.response);
+                        };
+                      }
+          const formData = new FormData();
+          const fileField = document.querySelector('input[type="file"]');
+
+          formData.append('username', 'abc123');
+          // formData.append('avatar', fileField.files[0]);
+
+          fetch('https://jsonplaceholder.typicode.com/users', {
+            method: 'PUT',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(result => {
+            console.log('Success:', result);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+
+        </script>
+
+</head>
+<body>
+ 
+  <button onclick="callPOSTAPI()">Add Booking</button>
+  <button onclick="callPUTAPI()">Update Booking</button>
+  <button onclick="deleteAPI()">Delete Booking</button>
+  <button onclick="callrestAPI()">View Booking</button>
+  <button onclick="callALLrestAPI()">View All Booking</button>
+  
+
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#id</th>
+                <th scope="col">name</th>
+                <th scope="col">username</th>
+                <th scope="col">email</th>
+                <th scope="col">street</th>
+                <th scope="col">suite</th>
+                <th scope="col">city</th>
+                <th scope="col">zipcode</th>
+                <th scope="col">geo</th>
+                <th scope="col">phone</th>
+                <th scope="col">website</th>
+                <th scope="col">company</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <!-- "id": 1,
+                //     "name": "Leanne Graham",
+                //     "username": "Bret",
+                //     "email": "Sincere@april.biz",
+                //     "address": {
+                //       "street": "Kulas Light",
+                //       "suite": "Apt. 556",
+                //       "city": "Gwenborough",
+                //       "zipcode": "92998-3874",
+                //       "geo": {
+                //         "lat": "-37.3159",
+                //         "lng": "81.1496"
+                //             }
+                //     },
+                //     "phone": "1-770-736-8031 x56442",
+                //     "website": "hildegard.org",
+                //     "company": {
+                //       "name": "Romaguera-Crona",
+                //       "catchPhrase": "Multi-layered client-server neural-net",
+                //       "bs": "harness real-time e-markets"
+                //     }
+                //    }; -->
+                <th scope="row">1</th>
+                <td>Leanne Graham</td>
+                <td>Bret</td>
+                <td>Sincere@april.biz</td>
+                <td>Kulas Light</td>
+                <td>Apt. 556</td>
+                <td>Gwenborough</td>
+                <td>92998-3874</td>
+                <td>-37.3159, 81.1496</td>
+                <td>1-770-736-8031 x56442</td>
+                <td>hildegard.org</td>
+                <td>Romaguera-Crona</td>
+
+
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    
+</body>
+</html>
